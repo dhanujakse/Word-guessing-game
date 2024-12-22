@@ -1,0 +1,29 @@
+import random
+name=input("What is your name? ")
+print("Good luck!", name)
+words=["hari","narayana","govinda","madhava","radharaman","neela madhav","jagannatha","subhadra mayyi","balabhadra"]
+word=random.choice(words)
+print("Guess the words: ")
+guesses=''
+turns=12
+while int(turns)>0:
+    failed=0
+    for char in word:
+        if char in guesses:
+            print(end=" ")
+        else:
+            print("_",end=" ")
+            failed+=1
+    print() 
+    if failed==0:
+        print("You won!! ")
+        print("The correct word is", word)
+        break
+    guess=input("Guess a word: ")
+    guesses+=guess
+    if guess not in word:
+        turns-=1
+        print("Wrong.")
+        print("You have",turns,"only left")
+        if guess==0:
+            print("You lost the game!")
